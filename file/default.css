@@ -1,0 +1,112 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000; /* solid black background, images removed */
+  color: white;
+  font-size: 14px;
+  font-family: sans-serif;
+  overflow: auto;
+}
+a {
+  color: white;
+  font-size: 14px;
+}
+#main {
+  width: 100%;
+}
+#wrap {
+  position: relative;
+  margin: 0 auto;
+  width: 1100px;
+  height: 680px;
+  margin-top: 10px;
+}
+#text {
+  width: 390px;
+  height: 560px;
+  left: 40px !important;
+  top: 80px;
+  position: absolute;
+  z-index: 2;
+}
+#code {
+  display: none;
+  color: rgb(196, 255, 255);
+  font-size: 16px;
+  margin-top: 70px;
+  line-height: 25px;
+  font-size: larger;
+  font-weight: bolder;
+}
+#clock-box {
+  position: absolute;
+  left: 60px;
+  top: 550px;
+  font-size: 28px;
+  display: none;
+}
+#clock-box a {
+  font-size: 28px;
+  text-decoration: none;
+}
+#clock {
+  margin-left: 48px;
+}
+#clock .digit {
+  font-size: 64px;
+}
+#canvas {
+  margin: 0 auto;
+  width: 1300px;
+  height: 680px;
+}
+#error {
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 60px;
+  display: none;
+}
+.hand {
+  cursor: pointer;
+}
+.say {
+  margin-left: 5px;
+}
+.space {
+  margin-right: 150px;
+}
+
+#message-box{
+  position: absolute;
+  margin-top:450px;
+  font-size: 25px;
+  font-family: monospace;
+
+}
+
+/* Smile decoration under text */
+#smile {
+  position: absolute;
+  left: 40px;   /* align with #text left */
+  top: 470px;   /* place under the last line of text */
+  z-index: 2;
+  filter: drop-shadow(0 0 6px rgba(255,102,204,0.6));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+#smile.draw { opacity: 1; }
+
+#smile.draw path {
+  /* Stroke length is set dynamically via JS for full arc */
+  animation: smile-draw 1.8s ease forwards 0.1s;
+}
+
+/* Slightly shorter animation for eye strokes */
+#smile.draw .eye {
+  animation: smile-draw 1.2s ease forwards 0.3s;
+}
+
+@keyframes smile-draw {
+  to { stroke-dashoffset: 0; }
+}
